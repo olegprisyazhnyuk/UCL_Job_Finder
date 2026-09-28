@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      const path = window.location.pathname;
+      const base = '/UCL_Job_Finder';
+
+      if (path.startsWith(base)) {
+        const route = path.slice(base.length) || '/';
+
+        window.location.replace(
+          base + '/?route=' + encodeURIComponent(route)
+        );
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
