@@ -57,7 +57,7 @@ function App() {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
-        <Router>
+        <Router basename="/UCL_Job_Finder">          
           <QAProvider>
             <ScrollToTop />
             <AuthenticatedApp />
