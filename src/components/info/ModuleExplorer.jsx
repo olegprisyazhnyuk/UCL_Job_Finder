@@ -66,18 +66,38 @@ export default function ModuleExplorer() {
 
       <div className="lg:col-span-7" ref={detailRef}>
         <div className="lg:sticky lg:top-10">
-          {active.lead && (
-            <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-2">
-              Module lead: {active.lead}
-            </p>
-          )}
 
           {isMinor ? (
             <p className="text-xs tracking-[0.2em] uppercase text-accent-deep font-medium mb-2">IEP Minor</p>
           ) : (
             <p className="text-xs tracking-[0.2em] uppercase text-accent-deep font-medium mb-2">{active.id}</p>
           )}
-          <h2 className="font-display text-3xl md:text-4xl leading-[1.1] mb-6">{active.name}</h2>
+          {active.website ? (
+            <a
+              href={active.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-block mb-6"
+            >
+              <h2 className="font-display text-3xl md:text-4xl leading-[1.1] group-hover:text-accent-deep transition-colors">
+                {active.name}
+              </h2>
+
+              <span className="block text-[10px] tracking-[0.15em] uppercase text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity mt-2">
+                Visit module website →
+              </span>
+            </a>
+          ) : (
+            <h2 className="font-display text-3xl md:text-4xl leading-[1.1] mb-6">
+              {active.name}
+            </h2>
+          )}
+
+          {active.lead && (
+            <p className="text-xs tracking-[0.2em] uppercase text-accent-deep font-medium mb-2">
+              Module lead: {active.lead}
+            </p>
+          )}
 
           <section className="mb-8">
             <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-3">What you learn</p>

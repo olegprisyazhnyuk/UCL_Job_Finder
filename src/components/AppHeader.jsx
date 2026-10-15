@@ -49,19 +49,18 @@ export default function AppHeader({
         </div>
       )}
 
-      <nav className="flex items-center gap-6 text-xs tracking-[0.15em] uppercase text-muted-foreground shrink-0">
-        {NAV.map((l) =>
-          pathname === l.to ? (
-            <span key={l.to} className="text-foreground">{l.label}</span>
-          ) : (
-            <Link key={l.to} to={l.to} className="hover:text-foreground transition-colors">{l.label}</Link>
-          )
-        )}
-        {showRestart && (
-          <button onClick={onRestart} className="hover:text-foreground transition-colors">
-            Restart
-          </button>
-        )}
+        <nav className="min-w-0 flex-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">        <div className="flex w-max flex-nowrap items-center gap-6 text-xs tracking-[0.15em] uppercase text-muted-foreground">
+          {NAV.map((l) =>
+            pathname === l.to ? (
+              <span key={l.to} className="text-foreground whitespace-nowrap">{l.label}</span>            ) : (
+              <Link key={l.to} to={l.to} className="hover:text-foreground transition-colors whitespace-nowrap">{l.label}</Link>            )
+          )}
+          {showRestart && (
+            <button onClick={onRestart} className="hover:text-foreground transition-colors">
+              Restart
+            </button>
+          )}
+        </div>
       </nav>
     </header>
   );
